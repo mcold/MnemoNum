@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <noInheritable/>
+  <assemblyIdentity name="Microsoft.VC80.CRT" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b" type="win32" version="8.0.50727.4940"/>
+  <file hash="7a83c9a9e1aa1049fcb513effc04e146722d8a32" hashalg="SHA1" name="msvcr80.dll"/>
+  <file hash="788b39be678b46d4ccc5876ddc0e2f57b6d8c03e" hashalg="SHA1" name="msvcp80.dll"/>
+  <file hash="2687aa4e3325d27e2a5bf9d32606f21661f66e50" hashalg="SHA1" name="msvcm80.dll"/>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>
+      <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"/>
+      <supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"/>
+      <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
+    </application>
+  </compatibility>
+</assembly>

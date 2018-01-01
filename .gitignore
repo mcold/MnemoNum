@@ -1,0 +1,7 @@
+test.py
+/build/*
+/output/*
+/build
+/output
+*.pyc
+*.db

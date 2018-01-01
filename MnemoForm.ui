@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MnemoNum</class>
+ <widget class="QMainWindow" name="MnemoNum">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>309</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MnemoWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>291</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Mnemo</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="lblText">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>291</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="eFilter">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>309</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDB">
+    <property name="title">
+     <string>DB</string>
+    </property>
+    <addaction name="actionExport"/>
+    <addaction name="actionImport"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit_2"/>
+   </widget>
+   <widget class="QMenu" name="menuExercise">
+    <property name="title">
+     <string>Exercise</string>
+    </property>
+    <addaction name="actionTestNum"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_Program"/>
+   </widget>
+   <widget class="QMenu" name="menuAddiction">
+    <property name="title">
+     <string>Addiction</string>
+    </property>
+    <addaction name="actionMonths_2"/>
+    <addaction name="actionDates"/>
+    <addaction name="actionTags"/>
+   </widget>
+   <addaction name="menuDB"/>
+   <addaction name="menuExercise"/>
+   <addaction name="menuAddiction"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionTestNum">
+   <property name="text">
+    <string>Numbers</string>
+   </property>
+  </action>
+  <action name="actionAbout_Program">
+   <property name="text">
+    <string>About Program</string>
+   </property>
+  </action>
+  <action name="actionMonths">
+   <property name="text">
+    <string>Months</string>
+   </property>
+  </action>
+  <action name="actionMonths_2">
+   <property name="text">
+    <string>Months</string>
+   </property>
+  </action>
+  <action name="actionDates">
+   <property name="text">
+    <string>Dates</string>
+   </property>
+  </action>
+  <action name="actionTags">
+   <property name="text">
+    <string>Tags</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
