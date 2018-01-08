@@ -2,6 +2,7 @@
 
 import sys
 from PyQt4 import QtGui, QtCore
+from PyQt4.QtGui import QKeyEvent
 from MnemoForm import Ui_MnemoNum
 from db import *
 import TestForm
@@ -28,6 +29,10 @@ except AttributeError:
 
 class MonthWindow(QtGui.QMainWindow):
     l = []
+
+
+    def TestTheTest(self, x = 0, y = 0):
+        return x + y
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self)
@@ -76,8 +81,9 @@ class AboutWindow(QtGui.QMainWindow):
         self.ui.setupUi(self)
 
 
+
 class TagWindow(QtGui.QMainWindow):
-    l = []
+    d = {}
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self)
@@ -88,25 +94,38 @@ class TagWindow(QtGui.QMainWindow):
         self.ui.tblTags.setColumnWidth(0, 250)
         self.ui.lineEdit.textEdited.connect(self.refresh_table)
 
+        self.ui.tblTags.cellChanged.connect(self.update_item)
+
+
+    def update_item(self):
+        try:
+            row = self.ui.tblTags.currentRow()
+            tag = self.ui.tblTags.item(row, 0).text().toUtf8()
+
+            tag = tag.data()  # перевод из QByteArray -> QString
+            update_tag(row, tag)
+        except:
+            pass
+
     def refresh_table(self):
         tag = self.ui.lineEdit.text().toUtf8().data()
         self.ui.tblTags.clear()
-        self.l = select_tag_like(tag)
+        self.d = select_tag_like(tag)
 
-        self.ui.tblTags.setRowCount(len(self.l))
-        n = -1
+        self.ui.tblTags.setRowCount(len(self.d))
+        n = -2
+        for k, v in self.d.items():
+            t = QtGui.QTableWidgetItem(v)
 
-        for i in range(len(self.l)):
-            x = self.l[i]
-            x = QtCore.QString(x)
-            t = QtGui.QTableWidgetItem(x)
-            t.setFlags(QtCore.Qt.ItemIsSelectable)
-            self.ui.tblTags.setItem(n, 1, t)
+            self.ui.tblTags.setItem(n, 2, t)
             n += 1
 
         h0 = QtGui.QTableWidgetItem()
         h0.setText('Tag')
         self.ui.tblTags.setHorizontalHeaderItem(0, h0)
+
+
+
 
 
     def addtag(self):
@@ -123,18 +142,28 @@ class TagWindow(QtGui.QMainWindow):
 
 
     def select_tags(self):
-        self.l = select_tags()
+        #self.l = select_tags()
+        self.d = select_tags()
 
-        self.ui.tblTags.setRowCount(len(self.l))
-        n = -1
+        self.ui.tblTags.setRowCount(len(self.d))
+        n = -2
 
-        for i in range(len(self.l)):
-            x = self.l[i]
-            x = QtCore.QString(x)
-            t = QtGui.QTableWidgetItem(x)
-            t.setFlags(QtCore.Qt.ItemIsSelectable)
-            self.ui.tblTags.setItem(n, 1, t)
+        for k, v in self.d.items():
+            t = QtGui.QTableWidgetItem(v)
+
+            self.ui.tblTags.setItem(n, 2, t)
             n += 1
+
+    def keyPressEvent(self, event):
+        if type(event) == QtGui.QKeyEvent:
+            key = event.key()
+
+            if key == QtCore.Qt.Key_Backspace:
+                print('Pressed Backspace')
+
+            elif key == QtCore.Qt.Key_Enter:
+                print('ENter pressed')
+
 
 
 class DatesWindow(QtGui.QMainWindow):
@@ -259,6 +288,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.actionTags.triggered.connect(self.TagWin)
         self.ui.actionExit_2.triggered.connect(app.exit)
 
+
     def MonthWin(self):
         self.month = MonthWindow()
         self.month.show()
@@ -343,6 +373,8 @@ class MainWindow(QtGui.QMainWindow):
 
 
         self.update_label()
+
+        # TODO: something
 
     def update_lbl(self):
         text = self.ui.eFilter.text().toUtf8().data()

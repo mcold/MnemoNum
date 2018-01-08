@@ -40,15 +40,17 @@ def create_db():
 
 def add_tag(tag):
     ins_tag(tag)
-    l = select_tags()
-    return l
+    d = select_tags()
+    return d
 
 def select_tags():
-    l = []
+    #l = []
+    d = {}
     for row in session.query(Tag).all():
         x = row.tag
-        l.append(x)
-    return l
+        d[row.id] = x
+        #l.append(x)
+    return d
 
 
 def ins_tag(tag):
@@ -113,10 +115,10 @@ def select_mnemo(mnemo=None):
     else:
         # if digit
         if mnemo.isdigit():
-            for row in session.query(Mnemo).filter(Mnemo.num.like(u'%{0}%'.format(mnemo.decode('utf-8')))).all():
+            for row in session.query(Mnemo).filter(Mnemo.num.ilike(u'%{0}%'.format(mnemo.decode('utf-8')))).all():
                 d[row.num] = row.mnemo
         else:
-            for row in session.query(Mnemo).filter(Mnemo.mnemo.like(u'%{0}%'.format(mnemo.decode('utf-8')))).all():
+            for row in session.query(Mnemo).filter(Mnemo.mnemo.ilike(u'%{0}%'.format(mnemo.decode('utf-8')))).all():
                 d[row.num] = row.mnemo
     return d
 
@@ -125,16 +127,18 @@ def select_tag_like(text=None):
         Select data from db
         :return: list dates
     """
-    l = []
+    # l = []
+    d = {}
 
     if text==None:
         for row in session.query(Tag).all():
-            l.append(row.tag)
+            #l.append(row.tag)
+            d[row.id] = row.tag
     else:
-        for row in session.query(Tag).filter(Tag.tag.like(u'%{0}%'.format(text.decode('utf-8')))).all():
-            l.append(row.tag)
-
-    return l
+        for row in session.query(Tag).filter(Tag.tag.ilike(u'%{0}%'.format(text.decode('utf-8')))).all():
+            #l.append(row.tag)
+            d[row.id] = row.tag
+    return d
 
 def select_mnemo_by_num(num=None):
     """
@@ -147,7 +151,7 @@ def select_mnemo_by_num(num=None):
         for row in session.query(Mnemo).all():
             d[row.num] = row.mnemo
     else:
-        for row in session.query(Mnemo).filter(Mnemo.num.like(u'%{0}%'.format(num.decode('utf-8')))).all():
+        for row in session.query(Mnemo).filter(Mnemo.num.ilike(u'%{0}%'.format(num.decode('utf-8')))).all():
             d[row.num] = row.mnemo
     return d
 
@@ -165,6 +169,13 @@ def update_mnemo(num, mnem):
     num = num.decode('utf-8')
     session.query(Mnemo).filter(Mnemo.num == num). \
         update({Mnemo.mnemo: mnem}, synchronize_session='evaluate')
+    session.commit()
+
+
+def update_tag(id, tag):
+    tag = tag.decode('utf-8')
+    session.query(Tag).filter(Tag.id == id). \
+        update({Tag.tag: tag}, synchronize_session='evaluate')
     session.commit()
 
 def update_month(num, mnem):

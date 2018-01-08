@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Months</class>
+ <widget class="QWidget" name="Months">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>279</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Months</string>
+  </property>
+  <widget class="QTableWidget" name="tblMonth">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>261</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>Январь</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Февраль</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Апрель</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Март</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Май</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Июнь</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Июль</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Август</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Сентябрь</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Октябрь</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Ноябрь</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Декабрь</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Mnemo</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

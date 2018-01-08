@@ -1,7 +1,11 @@
-test.py
+test*
 /build/*
 /output/*
 /build
 /output
 *.pyc
 *.db
+.vscode/*
+.vscode
+.idea/*
+.idea
